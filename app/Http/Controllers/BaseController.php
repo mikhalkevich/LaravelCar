@@ -18,4 +18,9 @@ class BaseController extends Controller
         //return view('static')->with('maintext', $maintext);
         return view('static', compact('maintext'));
     }
+
+    public function getIndexApi(){
+      $obj = Maintext::all();
+      return response()->json($obj);
+    }
 }
