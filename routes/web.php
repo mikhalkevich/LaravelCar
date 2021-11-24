@@ -14,4 +14,10 @@ use App\Http\Controllers;
 |
 */
 Route::get('/', [Controllers\BaseController::class, 'getIndex']);
-Route::get('{ulr}', [Controllers\BaseController::class, 'getStatic']);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home', [Controllers\HomeController::class, 'postIndex']);
+Route::get('{ulr}', [Controllers\BaseController::class, 'getStatic']); // всегда последний
