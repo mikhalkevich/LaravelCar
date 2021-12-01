@@ -17,4 +17,5 @@ use App\Http\Controllers;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('menu/{catalog}', [Controllers\MenuController::class, 'postIndex']);
 Route::get('maintexts', [Controllers\BaseController::class, 'getIndexApi']);

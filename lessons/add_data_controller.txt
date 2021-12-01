@@ -1,0 +1,40 @@
+добавить выпадающие списки в базу данных
+1) добавить данные через контроллер
+POST - создание записи
+GET - вывод
+PUT - редактирование
+DELETE - удаление
+POST - всё остальное (возможны исключения)
+Два способа создания данных через модель:
+- одиночная вставка
+- множественная вставка
+2) создать контроллер
+php artisan make:controller MenuController
+
+use App\Models\Catalog;
+
+    public function postIndex(Request $request, Catalog $catalog){
+        $obj = new Catalog;
+        $obj->parent_id = $catalog->id;
+        $obj->name = $request->name ?? '';
+        $obj->body = $request->body ?? ''; 
+        $obj->type = $request->type ?? 'main';
+        $obj->save();
+        return response()->json($obj);
+    }
+3) подключили к маршрутизатору routes/web.php или routes/api.php
+Route::post('menu/{catalog}', [Controllers\MenuController::class, 'postIndex']);    
+    
+    {{url}}/api/menu/1
+4) тестируем добавление в postmen
+   
+5) модель
+class Catalog extends Model
+{
+    use HasFactory;
+    public function catalogs(){
+        return $this->hasMany(self::class, 'parent_id');
+    }
+}    
+    
+    

@@ -1,0 +1,77 @@
+Задача: создание каталога для меню сайта в базовом шаблоне
+
+СОЗДАНИЕ
+1) Определить  поля
+id
+name
+body
+parent_id
+type()
+status
+поля даты (2,3)
+2) создать модель и миграцию
+php artisan make:model Catalog -m
+3) находим миграцию и заполняем
+        Schema::create('catalogs', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->text('body')->nullable();
+            $table->integer('parent_id')->nullable();
+            $table->string('type')->nullable();
+            $table->string('status')->nullable();
+            $table->timestamps(); //created_at и updated_at
+            $table->softDeletes(); //deleted_at
+        });
+4) запускаем миграцию на выполнение
+php artisan migrate    
+5) заполняем таблицу
+--- в ручную через PHPMyAdmin
+
+
+ВЫВОД В БАЗОВОМ ШАБЛОНЕ
+6) создали провайдер
+php artisan make:provider MenuServiceProvider
+7) в провайдере подключили класс ViewComposers\MenuComposer, задача которого передать переменные в базовый шаблон.
+View::composer('layouts.base', 'App\Providers\ViewComposers\MenuComposer');
+
+8) в MenuComposer.php
+
+namespace App\Providers\ViewComposers;
+use Illuminate\Contracts\View\View;
+use App\Catalog;
+class MenuComposer
+{
+    public function compose(View $view)
+    {
+        $menu_main = Catalog::whereNull('parent_id')
+        ->where('type', 'main')
+        ->get();
+        $view->with('menu_main', $menu_main);
+        Catalog::find($id);
+        Catalog::all()
+    }
+}
+where('type', '=','main') select * from catalogs where type = 'main'
+->whereNull('parent_id')   
+->where('parent_id', null)  
+->whereIn([1,2])  
+завершающие методы: 
+возвращают объект first(), Catalog::find($id)
+или массив объектов get(), paginate(), Catalog::all()
+
+9) подключение сервис провайдера.
+config/app.php
+в массиве $providers добавить в конце
+        App\Providers\MenuServiceProvider::class
+        
+10) в base.blade.php
+
+@foreach($menu_main as $menu)
+  <li>
+   <a href="javascript:void(0)">{{$menu->name}}</a>
+  </li>
+@endforeach
+        
+        
+        
+        
