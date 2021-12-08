@@ -10,28 +10,28 @@
     <title>Car Dealer - Mikhalkevich Alexandr Victorovich</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" />
 
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}" />
 
     <!-- flaticon -->
-    <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/flaticon.css')}}" />
 
     <!-- mega menu -->
-    <link rel="stylesheet" type="text/css" href="css/mega-menu/mega_menu.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/mega-menu/mega_menu.css')}}" />
 
     <!-- mega menu -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
 
     <!-- jquery-ui -->
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" >
+    <link rel="stylesheet" type="text/css" href="{{asset('css/jquery-ui.css')}}" >
 
     <!-- main style -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
 
     <!-- responsive -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}" />
 
 </head>
 
@@ -42,7 +42,7 @@
 
 <div id="loading">
     <div id="loading-center">
-        <img src="images/loader.gif" alt="">
+        <img src="{{asset('images/loader.gif')}}" alt="">
     </div>
 </div>
 
@@ -94,7 +94,7 @@
                             <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
-                                    <a href="/"><img id="logo_img" src="images/logo-light.png" alt="logo"> </a>
+                                    <a href="/"><img id="logo_img" src="{{asset('images/logo-light.png')}}" alt="logo"> </a>
                                 </li>
                             </ul>
                             <!-- menu links -->
@@ -154,6 +154,7 @@
                                     <ul class="drop-down-multilevel right-menu">
                                         <li><a href="{{asset('contact')}}">Контакты</a></li>
                                         <li><a href="{{asset('vacancy')}}">Вакансии</a></li>
+                                        <li><a href="{{asset('map')}}">Мы на карте</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -252,18 +253,7 @@
 
 <section class="inner-intro bg-1 bg-overlay-black-70">
     <div class="container">
-        <div class="row text-center intro-title">
-            <div class="col-md-6 text-md-left d-inline-block">
-                <h1 class="text-white">product listing </h1>
-            </div>
-            <div class="col-md-6 text-md-right float-right">
-                <ul class="page-breadcrumb">
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                    <li><a href="#">pages</a> <i class="fa fa-angle-double-right"></i></li>
-                    <li><span>listing 01</span> </li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 </section>
 
@@ -316,7 +306,7 @@
                     <h6 class="text-white">recent posts </h6>
                     <div class="recent-post">
                         <div class="recent-post-image">
-                            <img class="img-fluid" src="images/car/01.jpg" alt="">
+                            <img class="img-fluid" src="{{asset('images/car/01.jpg')}}" alt="">
                         </div>
                         <div class="recent-post-info">
                             <a href="#">Time to change your </a>
@@ -383,37 +373,29 @@
 back to top -->
 
 <div class="car-top">
-    <span><img src="images/car.png" alt=""></span>
+    <span><img src="{{asset('images/car.png')}}" alt=""></span>
 </div>
 
-<!--=================================
-back to top -->
-
-
-<!--=================================
- jquery -->
-
-<!-- jquery  -->
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 
 <!-- bootstrap -->
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 
 <!-- mega-menu -->
-<script type="text/javascript" src="js/mega-menu/mega_menu.js"></script>
+<script type="text/javascript" src="{{asset('js/mega-menu/mega_menu.js')}}"></script>
 
 <!-- jquery-ui -->
-<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery-ui.js')}}"></script>
 
 <!-- select -->
-<script type="text/javascript" src="js/select/jquery-select.js"></script>
+<script type="text/javascript" src="{{asset('js/select/jquery-select.js')}}"></script>
 
 <!-- magnific popup -->
-<script type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="{{asset('js/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
 
 <!-- custom -->
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
 
 </body>
 </html>

@@ -17,7 +17,10 @@ Route::get('/', [Controllers\BaseController::class, 'getIndex']);
 
 
 Auth::routes();
-
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [Controllers\HomeController::class, 'postIndex']);
+Route::get('catalog/{catalog}', [Controllers\CatalogController::class, 'getIndex']);
 Route::get('{ulr}', [Controllers\BaseController::class, 'getStatic']); // всегда последний
