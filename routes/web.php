@@ -23,4 +23,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [Controllers\HomeController::class, 'postIndex']);
 Route::get('catalog/{catalog}', [Controllers\CatalogController::class, 'getIndex']);
+Route::get('product/{product}', [Controllers\ProductController::class, 'getOne']);
 Route::get('{ulr}', [Controllers\BaseController::class, 'getStatic']); // всегда последний

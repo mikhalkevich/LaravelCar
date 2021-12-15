@@ -6,9 +6,8 @@
                 <div class="card">
                     <div class="card-header">Home</div>
                     <div class="card-body">
-                        @foreach($orders as $order)
-                            <hr />
-                            <div>{{$order->name}}</div>
+                        @foreach($products as $product)
+                            @include('includes.product-item')
                         @endforeach
                         <form method="post" action="/home">
                             @csrf

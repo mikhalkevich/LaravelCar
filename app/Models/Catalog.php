@@ -11,4 +11,7 @@ class Catalog extends Model
     public function catalogs(){
         return $this->hasMany(self::class, 'parent_id');
     }
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

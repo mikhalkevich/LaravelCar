@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Product;
 use Auth;
 
 class HomeController extends Controller
@@ -26,7 +27,16 @@ class HomeController extends Controller
     public function index()
     {
         $orders = Order::where('user_id', Auth::user()->id)->get();
-        return view('home', compact('orders'));
+        $products_array = explode(',',$_COOKIE['basket']);
+        $products = [];
+         foreach($products_array as $one){
+             if($one){
+                 $product_one = explode(':', $one);
+                 $products[] = Product::find($product_one[0]);
+             }
+
+         }
+        return view('home', compact('orders', 'products'));
     }
     public function postIndex(Request $request){
         $request['user_id'] = Auth::user()->id;

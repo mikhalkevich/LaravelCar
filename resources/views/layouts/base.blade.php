@@ -61,18 +61,34 @@
                     <div class="topbar-left text-lg-left text-center">
                         <ul class="list-inline">
                             <li> <i class="fa fa-envelope-o"> </i> mihalkevich@bsuir.by</li>
-                            <li> <i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00. Sunday CLOSED</li>
+                            <li> <i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="topbar-right text-lg-right text-center">
                         <ul class="list-inline">
-                            <li> <i class="fa fa-phone"></i> (089) 763 93 82</li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                            <li>
+                                <div id="basket">
+                                    <table id="bascets">
+                                        <tbody>
+                                        <tr style="display: none;" class="hPb">
+                                            <td>Выбрано:</td>
+                                            <td><span id="totalGoods">0</span> товаров</td>
+                                            <td>Сумма: &asymp; </td>
+                                            <td><span id="totalPrice">0</span> руб.</td>
+                                        </tr>
+                                        <tr style="display: table-row;" class="hPe">
+                                            <td colspan="2">Корзина пуста</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a style="display: none;" id="clearBasket" href="#">Очистить</a></td>
+                                            <td><a style="display: none;" id="checkOut" href="{{asset('home')}}">Оформить</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -234,6 +250,7 @@
                                         </div>
                                     </div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -244,17 +261,7 @@
     </div>
 </header>
 
-<!--=================================
- header -->
-
-
-<!--=================================
- inner-intro -->
-
 <section class="inner-intro bg-1 bg-overlay-black-70">
-    <div class="container">
-
-    </div>
 </section>
 
 @yield('content')
@@ -364,37 +371,20 @@
     </div>
 </footer>
 
-<!--=================================
- footer -->
-
-
-
-<!--=================================
-back to top -->
-
 <div class="car-top">
     <span><img src="{{asset('images/car.png')}}" alt=""></span>
 </div>
 
 <script type="text/javascript" src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-
-<!-- bootstrap -->
+<script src="{{asset('js/jquery-cookie.js')}}"></script>
+<script src="{{asset('js/cart.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-
-<!-- mega-menu -->
 <script type="text/javascript" src="{{asset('js/mega-menu/mega_menu.js')}}"></script>
-
-<!-- jquery-ui -->
 <script type="text/javascript" src="{{asset('js/jquery-ui.js')}}"></script>
 
-<!-- select -->
 <script type="text/javascript" src="{{asset('js/select/jquery-select.js')}}"></script>
-
-<!-- magnific popup -->
 <script type="text/javascript" src="{{asset('js/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-
-<!-- custom -->
 <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
 
 </body>
