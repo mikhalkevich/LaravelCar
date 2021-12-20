@@ -20,6 +20,9 @@ Auth::routes();
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/users', [Controllers\HomeController::class, 'getUsers']); //->middleware('admin');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [Controllers\HomeController::class, 'postIndex']);
 Route::get('catalog/{catalog}', [Controllers\CatalogController::class, 'getIndex']);

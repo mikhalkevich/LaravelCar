@@ -1,6 +1,5 @@
 @extends('layouts.base')
 @section('content')
-
 <section class="product-listing page-section-ptb">
     <div class="container">
             <h2>{{$product->name}}</h2>
