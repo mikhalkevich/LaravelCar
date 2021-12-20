@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Dec 15, 2021 at 06:25 PM
+-- Generation Time: Dec 20, 2021 at 06:34 PM
 -- Server version: 8.0.26
 -- PHP Version: 7.4.20
 
@@ -375,7 +375,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2016_01_01_000000_create_pages_table', 5),
 (29, '2016_01_01_000000_create_posts_table', 5),
 (30, '2016_02_15_204651_create_categories_table', 5),
-(31, '2017_04_11_000000_alter_post_nullable_fields_table', 5);
+(31, '2017_04_11_000000_alter_post_nullable_fields_table', 5),
+(32, '2021_12_20_162407_add_columns_to_order', 6);
 
 -- --------------------------------------------------------
 
@@ -389,17 +390,23 @@ CREATE TABLE `orders` (
   `user_id` int NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `name`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'test', 1, NULL, '2021-11-24 18:40:33', '2021-11-24 18:40:33'),
-(2, 'asdfasdf', 1, NULL, '2021-11-24 18:51:48', '2021-11-24 18:51:48'),
-(3, 'asdfasdfasdf', 1, NULL, '2021-11-24 18:51:54', '2021-11-24 18:51:54');
+INSERT INTO `orders` (`id`, `name`, `user_id`, `status`, `created_at`, `updated_at`, `email`, `phone`, `body`) VALUES
+(1, 'test', 1, NULL, '2021-11-24 18:40:33', '2021-11-24 18:40:33', NULL, NULL, NULL),
+(2, 'asdfasdf', 1, NULL, '2021-11-24 18:51:48', '2021-11-24 18:51:48', NULL, NULL, NULL),
+(3, 'asdfasdfasdf', 1, NULL, '2021-11-24 18:51:54', '2021-11-24 18:51:54', NULL, NULL, NULL),
+(4, 'Mikhalkevich', 1, NULL, '2021-12-20 16:35:13', '2021-12-20 16:35:13', 'mikhalkevich@ya.ru', 'test', NULL),
+(5, 'Mikhalkevich', 1, NULL, '2021-12-20 16:36:42', '2021-12-20 16:36:42', 'mikhalkevich@ya.ru', 'test', '1:1:100,2:1:800000,'),
+(6, 'Mikhalkevich', 1, NULL, '2021-12-20 16:38:18', '2021-12-20 16:38:18', 'mikhalkevich@ya.ru', 'test', '1:1:100,2:1:800000,');
 
 -- --------------------------------------------------------
 
@@ -1023,13 +1030,13 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pages`
