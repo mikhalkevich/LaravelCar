@@ -35,7 +35,6 @@ class HomeController extends Controller
                     $product_one = explode(':', $one);
                     $products[] = Product::find($product_one[0]);
                 }
-
             }
         }
         return view('home', compact('orders', 'products'));
